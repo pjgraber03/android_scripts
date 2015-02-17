@@ -48,25 +48,7 @@ tput bold
 tput setaf 1
 clear
 echo -e ""
-echo -e ""
-echo -e "      (         (           (    (                       (        )      )  "
-echo -e "      )\ )      )\ )        )\ ) )\ )        (     *   ) )\ )  ( /(   ( /(  "
-echo -e "     (()/( (   (()/(    (  (()/((()/( (      )\    )  /((()/(  )\())  )\()) "
-echo -e "      /(_)))\   /(_))   )\  /(_))/(_)))\   (((_)  ( )(_))/(_))((_)\  ((_)\  "
-echo -e "     (_)) ((_) (_))  _ ((_)(_)) (_)) ((_)  )\___ (_(_())(_))    ((_)  _((_) "
-echo -e "     | _ \| __|/ __|| | | || _ \| _ \| __|((/ __||_   _||_ _|  / _ \ | \| | "
-echo -e "     |   /| _| \__ \| |_| ||   /|   /| _|  | (__   | |   | |  | (_) || .  | "
-echo -e "     |_|_\|___||___/ \___/ |_|_\|_|_\|___|  \___|  |_|  |___|  \___/ |_|\_| "
-echo -e ""
-echo -e ""
-echo -e "                         (           *     (        )                       "
-echo -e "                         )\ )      (       )\ )  ( /(                       "
-echo -e "                        (()/( (    )\))(  (()/(  )\())                      "
-echo -e "                         /(_)))\  ((_)()\  /(_))((_)\                       "
-echo -e "                        (_)) ((_) (_()((_)(_))  __((_)                      "
-echo -e "                        | _ \| __||  \/  ||_ _| \ \/ /                      "
-echo -e "                        |   /| _| | |\/| | | |   >  <                       "
-echo -e "                        |_|_\|___||_|  |_||___| /_/\_\                      "
+echo -e "BLISS POP"
 echo -e ""
 echo -e ""
 echo -e ""
@@ -100,14 +82,14 @@ echo ""
 
 
 # Confirm fetching prebuilts
-echo -e "\n\n${bldgrn}  Do you want to fetch prebuilts?\n  (You don't need to fetch them frequently)"
+echo -e "\n\n${bldgrn}  Do you want to move the build after it finishes?\n "
 echo ""
 echo -e "${bldblu}  1. Yes"
 echo -e "${bldblu}  2. No"
 echo ""
 echo ""
 $normal
-read askPrebuilts
+read askMove
 
 
 
@@ -115,9 +97,9 @@ echo ""
 echo ""
 if [ "$askPrebuilts" == "1" ]
 then
-    echo -e "${bldred}  Prebuilts will be fetched... "
+    echo -e "${bldred}  Built will be Moved after it finishes... "
 else
-    echo -e "${bldred}  Prebuilts won't be fetched... "
+    echo -e "${bldred}  Build won't be moved... "
 fi
 echo ""
 echo ""
@@ -144,9 +126,9 @@ echo ""
 
 if [ "$askLinaro" == "2" ] || [ "$askLinaro" == "4" ]  
 then
-	echo -e "${bldred}  Resurrection Remix ROM will be compiled using Linaro Toolchain... "
+	echo -e "${bldred}  BlissPop ROM will be compiled using Linaro Toolchain... "
 else
-	echo -e "${bldred}  Resurrection Remix ROM will be compiled using the default GCC Toolchain..."
+	echo -e "${bldred}  BlissPop ROM will be compiled using the default GCC Toolchain..."
 fi
 
 if [ "$askLinaro" == "3" ] || [ "$askLinaro" == "4" ]
@@ -213,22 +195,6 @@ then
 fi
 
 
-
-# Get prebuilts
-if [ "$askPrebuilts" == "1" ]
-then
-	echo -e ""
-	echo -e ""
-	echo -e "${bldgrn}  Fetching prebuilts..."
-	echo -e ""
-	echo -e ""
-	$normal
-	cd vendor/cm
-	./get-prebuilts
-	cd ../../
-fi
-
-
 # Clear terminal
 clear
 
@@ -267,11 +233,11 @@ clear
 # Start compilation
 echo -e ""
 echo -e ""
-echo -e "${bldcya}  Starting compilation of Resurrection Remix ROM..."
+echo -e "${bldcya}  Starting compilation of BlissPop ROM..."
 echo -e ""
 echo -e ""
 $normal
-mka bacon
+make bacon
 echo -e ""
 
 
@@ -299,25 +265,7 @@ tput bold
 tput setaf 1
 clear
 echo -e ""
-echo -e ""
-echo -e "      (         (           (    (                       (        )      )  "
-echo -e "      )\ )      )\ )        )\ ) )\ )        (     *   ) )\ )  ( /(   ( /(  "
-echo -e "     (()/( (   (()/(    (  (()/((()/( (      )\    )  /((()/(  )\())  )\()) "
-echo -e "      /(_)))\   /(_))   )\  /(_))/(_)))\   (((_)  ( )(_))/(_))((_)\  ((_)\  "
-echo -e "     (_)) ((_) (_))  _ ((_)(_)) (_)) ((_)  )\___ (_(_())(_))    ((_)  _((_) "
-echo -e "     | _ \| __|/ __|| | | || _ \| _ \| __|((/ __||_   _||_ _|  / _ \ | \| | "
-echo -e "     |   /| _| \__ \| |_| ||   /|   /| _|  | (__   | |   | |  | (_) || .  | "
-echo -e "     |_|_\|___||___/ \___/ |_|_\|_|_\|___|  \___|  |_|  |___|  \___/ |_|\_| "
-echo -e ""
-echo -e ""
-echo -e "                         (           *     (        )                       "
-echo -e "                         )\ )      (       )\ )  ( /(                       "
-echo -e "                        (()/( (    )\))(  (()/(  )\())                      "
-echo -e "                         /(_)))\  ((_)()\  /(_))((_)\                       "
-echo -e "                        (_)) ((_) (_()((_)(_))  __((_)                      "
-echo -e "                        | _ \| __||  \/  ||_ _| \ \/ /                      "
-echo -e "                        |   /| _| | |\/| | | |   >  <                       "
-echo -e "                        |_|_\|___||_|  |_||___| /_/\_\                      "
+echo -e "THANKS FOR USING BLISSPOP BUILT SCRIPT"
 echo -e ""
 echo -e ""
 
