@@ -49,7 +49,7 @@ tput setaf 1
 clear
 echo -e ""
 echo -e "BLISS POP"
-echo -e ""
+echo -e "Patrick's Device list"
 echo -e ""
 echo -e ""
 echo -e ""
@@ -81,102 +81,6 @@ echo ""
 echo ""
 
 
-# Confirm fetching prebuilts
-echo -e "\n\n${bldgrn}  Do you want to move the build after it finishes?\n "
-echo ""
-echo -e "${bldblu}  1. Yes"
-echo -e "${bldblu}  2. No"
-echo ""
-echo ""
-$normal
-read askMove
-
-
-
-echo ""
-echo ""
-if [ "$askPrebuilts" == "1" ]
-then
-    echo -e "${bldred}  Built will be Moved after it finishes... "
-else
-    echo -e "${bldred}  Build won't be moved... "
-fi
-echo ""
-echo ""
-
-
-# Confirm toolchain to be used for compilation
-# Linaro or default GCC
-
-echo ""
-echo -e "\n\n${bldgrn}  Linaro toolchain\n"
-echo ""
-echo ""
-echo -e "${bldblu}  1. NO"
-echo -e "${bldblu}  2. Yes, but only use it for ROM"
-echo -e "${bldblu}  3. Yes, but only use it for KERNEL"
-echo -e "${bldblu}  4. Yes, use it for BOTH"
-echo ""
-echo -e "${bldblu}  Do you want to compile using Linaro? \n\n"
-$normal
-read askLinaro
-
-echo ""
-echo ""
-
-if [ "$askLinaro" == "2" ] || [ "$askLinaro" == "4" ]  
-then
-	echo -e "${bldred}  BlissPop ROM will be compiled using Linaro Toolchain... "
-else
-	echo -e "${bldred}  BlissPop ROM will be compiled using the default GCC Toolchain..."
-fi
-
-if [ "$askLinaro" == "3" ] || [ "$askLinaro" == "4" ]
-then
-	echo -e "${bldred}  Kernel will be compiled using Linaro Toolchain... "
-else
-	echo -e "${bldred}  Kernel will be compiled using the default GCC Toolchain..."
-fi
-
-echo ""
-echo ""
-
-
-sleep 2s
-
-# Clear terminal
-clear
-
-
-# Apply patch to enable compilation with Linaro Toolchain
-
-echo ""
-echo ""
-
-if [ "$askLinaro" == "2" ] || [ "$askLinaro" == "4" ]
-then
-	echo -e "${bldgrn}  Patching build environment to use Linaro Toolchain to compile the ROM... "
-	$normal
-	cd build
-	patch -p1 < ../patches/.linaro/android.diff
-	cd ..
-fi
-
-echo ""
-echo ""
-
-if [ "$askLinaro" == "3" ] || [ "$askLinaro" == "4" ]
-then
-	echo -e "${bldgrn}  Patching build environment to use Linaro Toolchain to compile the kernel... "
-	$normal
-	cd build
-	patch -p1 < ../patches/.linaro/kernel.diff
-	cd ..
-fi
-
-echo ""
-echo ""
-
 
 sleep 2s
 # Clear terminal
@@ -202,62 +106,14 @@ clear
 # Setup environment
 echo -e ""
 echo -e ""
-echo -e "${bldgrn}  Setting up build environment..."
+echo -e "${bldgrn}  Starting up build sequence for Shamu,vs985,flo,deb,titan and falcon..."
 echo -e ""
 echo -e ""
 $normal
-. build/envsetup.sh
-
 
 
 # Clear terminal
 clear
-
-
-
-# Lunch device
-echo -e ""
-echo -e ""
-echo -e "${bldcya}  Choose your device from the lunch menu..."
-echo -e ""
-echo -e ""
-$normal
-$green
-lunch
-
-
-# Clear terminal
-clear
-
-
-# Start compilation
-echo -e ""
-echo -e ""
-echo -e "${bldcya}  Starting compilation of BlissPop ROM..."
-echo -e ""
-echo -e ""
-$normal
-make bacon
-echo -e ""
-
-
-
-# Get elapsed time
-$blue
-res2=$(date +%s.%N)
-echo -e ""
-echo -e ""
-echo "${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}"
-echo -e ""
-echo -e ""
-
-# Reverting toolchain to default GCC from linaro
-if [ "$askLinaro" == "2" ] || [ "$askLinaro" == "3" ] || [ "$askLinaro" == "4" ]
-then
-	cd build
-	git checkout .
-	cd ..
-fi
 
 
 # Compilation complete
@@ -265,7 +121,7 @@ tput bold
 tput setaf 1
 clear
 echo -e ""
-echo -e "THANKS FOR USING BLISSPOP BUILT SCRIPT"
+echo -e "Device have all been built and uploaded"
 echo -e ""
 echo -e ""
 
