@@ -135,7 +135,7 @@ else
         echo""
         $normal
         . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && cp out/target/product/shamu/ota3.xml ~/blisshost
-
+fi
 # Clear terminal
 clear
 
