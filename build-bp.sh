@@ -152,4 +152,3 @@ echo -e ""
 
 # Switch terminal back to normal
 $normal
-
