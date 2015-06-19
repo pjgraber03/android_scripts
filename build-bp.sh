@@ -59,6 +59,16 @@ sleep 3s
 # Clear terminal
 clear
 
+# Confirm 'repo sync'
+echo -e "\n\n${bldgrn}  Do you want to repo sync before proceeding?\n"
+echo ""
+echo -e "${bldblu}  1. Yes"
+echo -e "${bldblu}  2. No"
+echo ""
+echo ""
+$normal
+read askreposync
+
 # Confirm 'make clean'
 echo -e "\n\n${bldgrn}  Do you want to make clean?\n"
 echo ""
@@ -81,6 +91,18 @@ read askdevices
 
 echo ""
 echo ""
+if [ "$askreposync" == "1" ]
+then
+    echo -e "${bldred}  Will repo sync before starting the build... "
+else
+    echo -e "${bldred}  Will continue without repo syncing... "
+fi
+echo ""
+echo ""
+
+echo ""
+echo ""
+
 if [ "$askClean" == "1" ]
 then
     echo -e "${bldred}  Compilation will continue after cleaning previous build files... "
@@ -106,6 +128,16 @@ sleep 2s
 # Clear terminal
 clear
 
+if [ "$askreposync" == "1" ]
+then
+	echo ""
+	echo ""
+	echo -e "${bldgrn}  syncing... "
+	echo ""
+	echo ""
+	$normal
+	repo sync -j250
+fi
 
 if [ "$askClean" == "1" ]
 then
