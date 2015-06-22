@@ -56,8 +56,6 @@ echo -e ""
 
 sleep 3s
 
-# Clear terminal
-clear
 
 # Confirm 'repo sync'
 echo -e "\n\n${bldgrn}  Do you want to repo sync before proceeding?\n"
@@ -125,8 +123,7 @@ echo ""
 
 
 sleep 2s
-# Clear terminal
-clear
+
 
 if [ "$askreposync" == "1" ]
 then
@@ -168,14 +165,12 @@ else
         $normal
         . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && cp out/target/product/shamu/ota3.xml ~/blisshost
 fi
-# Clear terminal
-clear
+
 
 
 # Compilation complete
 tput bold
 tput setaf 1
-clear
 echo -e ""
 echo -e "Device have all been built and uploaded"
 echo -e ""
