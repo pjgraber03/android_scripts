@@ -175,7 +175,3 @@ echo -e ""
 echo -e "Device have all been built and uploaded"
 echo -e ""
 echo -e ""
-
-
-# Switch terminal back to normal
-$normal
