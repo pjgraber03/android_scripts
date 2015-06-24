@@ -88,16 +88,6 @@ echo ""
 $normal
 read askClean
 
-# Devices to build
-echo -e "\n\n${bldgrn}  Do you want to build all devices?\n"
-echo ""
-echo -e "${bldblu}  1. Yes"
-echo -e "${bldblu}  2. No"
-echo ""
-echo ""
-$normal
-read askdevices
-
 echo ""
 echo ""
 if [ "$askreposync" == "1" ]
@@ -121,14 +111,6 @@ fi
 echo ""
 echo ""
 
-echo ""
-echo ""
-if [ "$askdevices" == "1" ]
-then
-    echo -e "${bldred}  Will build Shamu, vs985, flo, deb, titan and Falcon... "
-else
-    echo -e "${bldred}  Will be just Shamu... "
-fi
 echo ""
 echo ""
 
@@ -158,24 +140,35 @@ then
 	make clobber
 fi
 
-if [ "$askdevices" == "1" ]
-then
-	echo ""
-	echo ""
-	echo -e "${bldgrn}  Building all devices Now... "
-	echo ""
-	echo ""
-	$normal
-        . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && rm -rfv /home/pjgraber03/blisshost/ota3.xml && cp out/target/product/shamu/ota3.xml ~/blisshost && . build/envsetup.sh && brunch vs985 && cp out/target/product/vs985/BlissPop* /home/web-bliss/BlissPop/Official/vs985 && rm -rfv /home/web-bliss/BlissPop/Official/vs985/ota3.xml && cp out/target/product/vs985/ota3.xml /home/web-bliss/BlissPop/Official/vs985 && . build/envsetup.sh && brunch flo && cp out/target/product/flo/BlissPop* /home/web-bliss/BlissPop/Official/flo && rm -rfv /home/web-bliss/BlissPop/Official/flo/ota3.xml && cp out/target/product/flo/ota3.xml /home/web-bliss/BlissPop/Official/flo && . build/envsetup.sh && brunch deb && cp out/target/product/deb/BlissPop* /home/web-bliss/BlissPop/Official/deb && rm -rfv /home/web-bliss/BlissPop/Official/deb/ota.xml && cp out/target/product/deb/ota3.xml /home/web-bliss/BlissPop/Official/deb && . build/envsetup.sh && brunch titan && cp out/target/product/titan/BlissPop* /home/web-bliss/BlissPop/Official/titan && rm -rfv /home/web-bliss/BlissPop/Official/titan/ota3.xml && cp out/target/product/titan/ota3.xml /home/web-bliss/BlissPop/Official/titan && . build/envsetup.sh && brunch falcon && cp out/target/product/falcon/BlissPop* /home/web-bliss/BlissPop/Official/falcon && rm -rfv /home/web-bliss/BlissPop/Official/falcon/ota3.xml && cp out/target/product/falcon/ota3.xml /home/web-bliss/BlissPop/Official/falcon
-else 
-        echo ""
-        echo ""
-        echo -e "${bldgrn}  Building Shamu Now... "
-        echo ""
-        echo""
-        $normal
-        . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && rm -rfv ~/blisshost/ota3.xml && cp out/target/product/shamu/ota3.xml ~/blisshost
-fi
+# Setup environment
+echo -e ""
+echo -e ""
+echo -e "${bldgrn}  Setting up build environment..."
+echo -e ""
+echo -e ""
+$normal
+. build/envsetup.sh
+
+
+# Lunch device
+echo -e ""
+echo -e ""
+echo -e "${bldcya}  Choose your device from the lunch menu..."
+echo -e ""
+echo -e ""
+$normal
+$green
+lunch
+
+# Start compilation
+echo -e ""
+echo -e ""
+echo -e "${bldcya}  Starting compilation BlissPop..."
+echo -e ""
+echo -e ""
+$normal
+make bacon
+echo -e ""
 
 
 
@@ -183,6 +176,6 @@ fi
 tput bold
 tput setaf 1
 echo -e ""
-echo -e "Device have all been built and uploaded"
+echo -e "The build process has finished"
 echo -e ""
 echo -e ""
