@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#    Resurrection Remix Compilation Script
+#    BlissPop  Compilation Script
 #
-#    Copyright (C) 2014 Shubhang Rathore
+#    Copyright (C) 2015 Team Bliss
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -48,8 +48,19 @@ tput bold
 tput setaf 1
 clear
 echo -e ""
-echo -e "BLISS POP"
-echo -e "Patrick's Device list"
+echo -e "      ___           ___                   ___           ___           ___           ___           ___              "
+echo -e "     /\  \         /\__\      ___        /\  \         /\  \         /\  \         /\  \         /\  \             "
+echo -e "    /::\  \       /:/  /     /\  \      /::\  \       /::\  \       /::\  \       /::\  \       /::\  \            "
+echo -e "   /:/\:\  \     /:/  /      \:\  \    /:/\ \  \     /:/\ \  \     /:/\:\  \     /:/\:\  \     /:/\:\  \           "
+echo -e "  /::\~\:\__\   /:/  /       /::\__\  _\:\~\ \  \   _\:\~\ \  \   /::\~\:\  \   /:/  \:\  \   /::\~\:\  \          "
+echo -e " /:/\:\ \:|__| /:/__/     __/:/\/__/ /\ \:\ \ \__\ /\ \:\ \ \__\ /:/\:\ \:\__\ /:/__/ \:\__\ /:/\:\ \:\__\         "
+echo -e " \:\~\:\/:/  / \:\  \    /\/:/  /    \:\ \:\ \/__/ \:\ \:\ \/__/ \/__\:\/:/  / \:\  \ /:/  / \/__\:\/:/  /         "
+echo -e "  \:\ \::/  /   \:\  \   \::/__/      \:\ \:\__\    \:\ \:\__\        \::/  /   \:\  /:/  /       \::/  /          " 
+echo -e "   \:\/:/  /     \:\  \   \:\__\       \:\/:/  /     \:\/:/  /         \/__/     \:\/:/  /         \/__/           "  
+echo -e "    \::/__/       \:\__\   \/__/        \::/  /       \::/  /                     \::/  /                          "
+echo -e "     ~~            \/__/                 \/__/         \/__/                       \/__/                           "
+echo -e ""
+echo -e ""
 echo -e ""
 echo -e ""
 echo -e ""
