@@ -174,7 +174,7 @@ else
         echo ""
         echo""
         $normal
-        . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost/shamu && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && rm -rfv ~/blisshost/shamu/ota3.xml && cp out/target/product/shamu/ota3.xml ~/blisshost/shamu
+        . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost/shamu && rm -rfv ~/log/CHANGELOG-bliss.txt && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && rm -rfv ~/blisshost/shamu/ota3.xml && cp out/target/product/shamu/ota3.xml ~/blisshost/shamu
 fi
 
 
