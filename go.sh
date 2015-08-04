@@ -89,12 +89,12 @@ $normal
 read askClean
 
 # Devices to build
-echo -e "\n\n${bldgrn}  Do you want to build all devices?\n"
+echo -e "\n\n${bldgrn}  What device would you like to build for?\n"
 echo ""
-echo -e "${bldblu}  1. Yes"
-echo -e "${bldblu}  2. No"
-echo ""
-echo ""
+echo -e "${bldblu}  1. flo"
+echo -e "${bldblu}  2. deb"
+echo -e "${bldblu}  3. vk810"
+echo -e "${bldblu}  4. All Devices"
 $normal
 read askdevices
 
@@ -125,9 +125,9 @@ echo ""
 echo ""
 if [ "$askdevices" == "1" ]
 then
-    echo -e "${bldred}  Will build  vs985, flo, deb, titan, falcon, mako and M8... "
+    echo -e "${bldred}  Will build  your selected device.. "
 else
-    echo -e "${bldred}  Will be just Shamu... "
+    echo -e "${bldred}  Will build all the devices... "
 fi
 echo ""
 echo ""
@@ -162,19 +162,35 @@ if [ "$askdevices" == "1" ]
 then
 	echo ""
 	echo ""
-	echo -e "${bldgrn}  Building all devices Now... "
+	echo -e "${bldgrn}  Building flo... "
 	echo ""
 	echo ""
 	$normal
-        . build/envsetup.sh && brunch vs985 && cp out/target/product/vs985/BlissPop* /home/web-bliss/BlissPop/Official/vs985 && rm -rfv /home/web-bliss/BlissPop/Official/vs985/ota3.xml && cp out/target/product/vs985/ota3.xml /home/web-bliss/BlissPop/Official/vs985 && . build/envsetup.sh && brunch flo && cp out/target/product/flo/BlissPop* /home/web-bliss/BlissPop/Official/flo && rm -rfv /home/web-bliss/BlissPop/Official/flo/ota3.xml && cp out/target/product/flo/ota3.xml /home/web-bliss/BlissPop/Official/flo && . build/envsetup.sh && brunch deb && cp out/target/product/deb/BlissPop* /home/web-bliss/BlissPop/Official/deb && rm -rfv /home/web-bliss/BlissPop/Official/deb/ota.xml && cp out/target/product/deb/ota3.xml /home/web-bliss/BlissPop/Official/deb && . build/envsetup.sh && brunch titan && cp out/target/product/titan/BlissPop* /home/web-bliss/BlissPop/Official/titan && rm -rfv /home/web-bliss/BlissPop/Official/titan/ota3.xml && cp out/target/product/titan/ota3.xml /home/web-bliss/BlissPop/Official/titan && . build/envsetup.sh && brunch falcon && cp out/target/product/falcon/BlissPop* /home/web-bliss/BlissPop/Official/falcon && rm -rfv /home/web-bliss/BlissPop/Official/falcon/ota3.xml && cp out/target/product/falcon/ota3.xml /home/web-bliss/BlissPop/Official/falcon && brunch mako && cp out/target/product/mako/BlissPop* /home/web-bliss/BlissPop/Official/mako && rm -rfv /home/web-bliss/BlissPop/Official/mako/ota3.xml && cp out/target/product/mako/ota3.xml /home/web-bliss/BlissPop/Official/mako && . build/envsetup.sh && brunch m8 && cp out/target/product/m8/BlissPop* /home/web-bliss/BlissPop/Official/m8 && rm -rfv /home/web-bliss/BlissPop/Official/m8/ota3.xml && cp out/target/product/m8/ota3.xml /home/web-bliss/BlissPop/Official/m8
-else 
+        . build/envsetup.sh && brunch flo && cp out/target/product/flo/BlissPop* /home/web-bliss/BlissPop/Official/flo && rm -rfv /home/web-bliss/BlissPop/Official/flo/ota3.xml && cp out/target/product/flo/ota3.xml /home/web-bliss/BlissPop/Official/flo
+if [ "$askdevices" == "2"]
+then
         echo ""
         echo ""
-        echo -e "${bldgrn}  Building Shamu Now... "
+        echo -e "${bldgrn}  Building deb..."
         echo ""
-        echo""
+        echo ""
+        $normal 
+        . build/envsetup.sh && brunch deb && cp out/target/product/deb/BlissPop* /home/web-bliss/BlissPop/Official/deb && rm -rfv /home/web-bliss/BlissPop/Official/deb/ota3.xml && cp out/target/product/deb/ota3.xml /home/web-bliss/BlissPop/Official/deb
+if [ "$askdevices" == "3"]
+then
+        echo ""
+        echo ""
+        echo -e "${bldgrn} Building vk810..."
         $normal
-        . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost/shamu && rm -rfv ~/log/CHANGELOG-bliss.txt && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && rm -rfv ~/blisshost/shamu/ota3.xml && cp out/target/product/shamu/ota3.xml ~/blisshost/shamu
+        . build/envsetup.sh && brunch vk810 && cp out/target/product/vk810/BlissPop* /home/web-bliss/BlissPop/Official/vk810 && rm -rfv /home/web-bliss/BlissPop/Official/vk810/ota3.xml && cp out/target/product/vk810/ota3.xml /home/web-bliss/BlissPop/Official/vk810
+if [ "$askdevices" == "4"]
+then
+        echo ""
+        echo ""
+        echo -e "${bldgrn} Building all devices..."
+        $normal
+        . build/envsetup.sh && brunch flo && cp out/target/product/flo/BlissPop* /home/web-bliss/BlissPop/Official/flo && rm -rfv /home/web-bliss/BlissPop/Official/flo/ota3.xml && cp out/target/product/flo/ota3.xml /home/web-bliss/BlissPop/Official/flo &&  . build/envsetup.sh && brunch deb && cp out/target/product/deb/BlissPop* /home/web-bliss/BlissPop/Official/deb && rm -rfv /home/web-bliss/BlissPop/Official/deb/ota3.xml && cp out/target/product/deb/ota3.xml /home/web-bliss/BlissPop/Official/deb && . build/envsetup.sh && brunch vk810 && cp out/target/product/vk810/BlissPop* /home/web-bliss/BlissPop/Official/vk810 && rm -rfv /home/web-bliss/BlissPop/Official/vk810/ota3.xml && cp out/target/product/vk810/ota3.xml /home/web-bliss/BlissPop/Official/vk810
+        
 fi
 
 
