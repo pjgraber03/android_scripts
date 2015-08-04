@@ -144,7 +144,7 @@ then
 	echo ""
 	echo ""
 	$normal
-	repo sync -j250
+	repo sync --force-sync -j250
 fi
 
 if [ "$askClean" == "1" ]
