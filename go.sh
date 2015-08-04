@@ -169,7 +169,7 @@ then
         . build/envsetup.sh && brunch flo && cp out/target/product/flo/BlissPop* /home/web-bliss/BlissPop/Official/flo && rm -rfv /home/web-bliss/BlissPop/Official/flo/ota3.xml && cp out/target/product/flo/ota3.xml /home/web-bliss/BlissPop/Official/flo
 fi
 
-if [ "$askdevices" == "2"]
+if [ "$askdevices" == "2" ]
 then
         echo ""
         echo ""
@@ -180,7 +180,7 @@ then
         . build/envsetup.sh && brunch deb && cp out/target/product/deb/BlissPop* /home/web-bliss/BlissPop/Official/deb && rm -rfv /home/web-bliss/BlissPop/Official/deb/ota3.xml && cp out/target/product/deb/ota3.xml /home/web-bliss/BlissPop/Official/deb
 fi
 
-if [ "$askdevices" == "3"]
+if [ "$askdevices" == "3" ]
 then
         echo ""
         echo ""
@@ -189,7 +189,7 @@ then
         . build/envsetup.sh && brunch vk810 && cp out/target/product/vk810/BlissPop* /home/web-bliss/BlissPop/Official/vk810 && rm -rfv /home/web-bliss/BlissPop/Official/vk810/ota3.xml && cp out/target/product/vk810/ota3.xml /home/web-bliss/BlissPop/Official/vk810
 fi
 
-if [ "$askdevices" == "4"]
+if [ "$askdevices" == "4" ]
 then
         echo ""
         echo ""
