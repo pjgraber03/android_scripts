@@ -166,16 +166,16 @@ then
 	echo ""
 	echo ""
 	$normal
-        . build/envsetup.sh && brunch vs985 && cp out/target/product/vs985/BlissPop* /home/web-bliss/BlissPop/Official/vs985 && rm -rfv /home/web-bliss/BlissPop/Official/vs985/ota3.xml && cp out/target/product/vs985/ota3.xml /home/web-bliss/BlissPop/Official/vs985 && . build/envsetup.sh && brunch flo && cp out/target/product/flo/BlissPop* /home/web-bliss/BlissPop/Official/flo && rm -rfv /home/web-bliss/BlissPop/Official/flo/ota3.xml && cp out/target/product/flo/ota3.xml /home/web-bliss/BlissPop/Official/flo && . build/envsetup.sh && brunch deb && cp out/target/product/deb/BlissPop* /home/web-bliss/BlissPop/Official/deb && rm -rfv /home/web-bliss/BlissPop/Official/deb/ota.xml && cp out/target/product/deb/ota3.xml /home/web-bliss/BlissPop/Official/deb && . build/envsetup.sh && brunch titan && cp out/target/product/titan/BlissPop* /home/web-bliss/BlissPop/Official/titan && rm -rfv /home/web-bliss/BlissPop/Official/titan/ota3.xml && cp out/target/product/titan/ota3.xml /home/web-bliss/BlissPop/Official/titan && . build/envsetup.sh && brunch falcon && cp out/target/product/falcon/BlissPop* /home/web-bliss/BlissPop/Official/falcon && rm -rfv /home/web-bliss/BlissPop/Official/falcon/ota3.xml && cp out/target/product/falcon/ota3.xml /home/web-bliss/BlissPop/Official/falcon && brunch mako && cp out/target/product/mako/BlissPop* /home/web-bliss/BlissPop/Official/mako && rm -rfv /home/web-bliss/BlissPop/Official/mako/ota3.xml && cp out/target/product/mako/ota3.xml /home/web-bliss/BlissPop/Official/mako && . build/envsetup.sh && brunch m8 && cp out/target/product/m8/BlissPop* /home/web-bliss/BlissPop/Official/m8 && rm -rfv /home/web-bliss/BlissPop/Official/m8/ota3.xml && cp out/target/product/m8/ota3.xml /home/web-bliss/BlissPop/Official/m8
-else 
+ . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/Bliss*.zip /home/web-bliss/Bliss/Maintenance/shamu && rm -rfv /home/web-bliss/Bliss/Maintenance/shamu/ota6.xml && cp out/target/product/shamu/ota6.xml /home/web-bliss/Bliss/Maintenance/shamu &&  . build/envsetup.sh && brunch deb && cp out/target/product/deb/Bliss*.zip /home/web-bliss/Bliss/Maintenance/deb && rm -rfv /home/web-bliss/Bliss/Maintenance/deb/ota6.xml && cp out/target/product/deb/ota6.xml /home/web-bliss/Bliss/Maintenance/deb &&  . build/envsetup.sh && brunch flo && cp out/target/product/flo/Bliss*.zip /home/web-bliss/Bliss/Maintenance/flo && rm -rfv /home/web-bliss/Bliss/Maintenance/flo/ota6.xml && cp out/target/product/flo/ota6.xml /home/web-bliss/Bliss/Maintenance/flo
+ else 
         echo ""
         echo ""
         echo -e "${bldgrn}  Building Shamu Now... "
         echo ""
         echo""
         $normal
-        . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/BlissPop* ~/blisshost/shamu && rm -rfv ~/log/CHANGELOG-bliss.txt && cp out/target/product/shamu/system/etc/CHANGELOG-bliss.txt ~/log && rm -rfv ~/blisshost/shamu/ota3.xml && cp out/target/product/shamu/ota3.xml ~/blisshost/shamu
-fi
+ . build/envsetup.sh && brunch shamu && cp out/target/product/shamu/Bliss*.zip /home/web-bliss/Bliss/Maintenance/shamu && rm -rfv /home/web-bliss/Bliss/Maintenance/shamu/ota6.xml && cp out/target/product/shamu/ota6.xml /home/web-bliss/Bliss/Maintenance/shamu
+ fi
 
 
 
